@@ -1,0 +1,38 @@
+.DisplayDetail td, .DisplayDetail th{
+    font-size: 20px;
+    text-align: justify;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.DisplayDetail{
+    width: 70%;
+    margin: 50px auto;
+    background: #fff;
+    box-shadow: 0px 3px 10px 1px #aaa;
+    border-radius: 7px;
+    justify-content: space-evenly;
+    border-collapse: collapse;
+
+}
+
+.Add{
+    float: right;
+    background-image: linear-gradient(to right, rgb(255, 51, 41), red);
+    color: white;
+    margin: 5px;
+    font-size: 18px;
+    outline: none;
+    padding: 5px;
+    border: 2px solid rgb(255, 91, 81);
+    border-radius: 4px;
+}
+.Add:active, .Add:hover{
+    background-image: linear-gradient(to right, red,rgb(255, 51, 41));
+}
+
+table th {
+    text-align: center;
+    justify-content: center;
+    
+}
