@@ -1,12 +1,13 @@
 .DisplayDetail td, .DisplayDetail th{
     font-size: 20px;
-    text-align: justify;
+    text-align: center;
     border: 1px solid black;
     padding: 5px;
+
 }
 
 .DisplayDetail{
-    width: 70%;
+    width: 60%;
     margin: 50px auto;
     background: #fff;
     box-shadow: 0px 3px 10px 1px #aaa;
@@ -31,8 +32,3 @@
     background-image: linear-gradient(to right, red,rgb(255, 51, 41));
 }
 
-table th {
-    text-align: center;
-    justify-content: center;
-    
-}

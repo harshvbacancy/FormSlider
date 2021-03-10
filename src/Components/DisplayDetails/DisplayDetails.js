@@ -5,37 +5,38 @@ import Button from '../UI/Button/Button'
 const DisplayDetails = (props) => {
     let details = [...props.Details];
     let data = details.map((user, i) => (
-        <tr>
+        <tr key={i}>
             <td style={{ width: '30%' }}>{user.name}</td>
-            <td style={{ width: '15%' }}>{user.jobTitle}</td>
-            <td style={{ width: '15%' }}>{user.mobileNumber}</td>
-            <td style={{ width: '40%' }}>
-                <Button clicked={() => { props.onSetSidebarOpen(true); props.onPressEditRecord(user, i) }} btnType='Success'>
-                    Edit Record
+            <td style={{ width: '20%' }}>{user.jobTitle}</td>
+            <td style={{ width: '20%' }}>{user.mobileNumber}</td>
+            <td style={{ width: '30%' }}>
+                <Button clicked={() => { props.onSetSidebarOpen(true); props.onPressAddOrEditRecord(user, i, true) }} btnType='Success'>
+                    Edit
             </Button>
                 <Button clicked={() => { props.deleteRecord(i) }} btnType='Danger'>
-                    Delete Record
+                    Delete
             </Button>
             </td>
         </tr>
     ))
-    return (
-        <table className={classes.DisplayDetail} key={new Date()}>
-            <tbody>
-                <tr>
-                    <th>Employee Name</th><th>Job Title</th><th>Phone Number</th><th>Actions</th>
-                </tr>
-                {data}
 
-                <tr>
-                    <td colSpan='4'>
-                        <Button clicked={props.onAddMore} btnType='Primary'>
-                            + Add Record
-                                </Button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    return (
+        <div>
+            <table className={classes.DisplayDetail}>
+                <tbody>
+                    <tr>
+                        <th>Employee Name</th><th>Job Title</th><th>Phone Number</th><th>Actions</th>
+                    </tr>
+                    {data}
+                </tbody>
+            </table>
+
+            <Button clicked={() => { props.onSetSidebarOpen(true); props.onPressAddOrEditRecord({}, -1, false) }} btnType='Primary'>
+                + Add
+            </Button>
+        </div>
+
+
     );
 }
 export default DisplayDetails;

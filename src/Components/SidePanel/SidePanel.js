@@ -1,49 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Sidebar from "react-sidebar";
-import Input from '../UI/Input/Input'
-import Button from '../UI/Button/Button'
-import classes from './SidePanel.module.css'
+import classes from "./SidePanel.module.css";
+import EmployeeForm from '../EmployeeForm/EmployeeForm';
 
-class SidePanel extends Component {
-    render() {
+const SidePanel = (props) => {
         let editForm = (
-            <div className={classes.SidePanel}>
-                <form>
-                <h2>Employee Information</h2>
-                    <Input type="text"
-                        placeholder="Enter your name...."
-                        name="name"
-                        label="Employee Name:"
-                        value={this.props.recordToEdit.name || ''}
-                        onChange={(event) => this.props.handleSidebarChange(event)} />
-                    <Input type="text"
-                        placeholder="Enter job title...."
-                        name="jobTitle"
-                        label="Employee Job Title:"
-                        value={this.props.recordToEdit.jobTitle || ''}
-                        onChange={(event) => this.props.handleSidebarChange(event)} />
-
-                    <Input type="number"
-                        placeholder="Enter mobile number..."
-                        name="mobileNumber"
-                        label="Employee Mobile Number:"
-                        value={this.props.recordToEdit.mobileNumber || ''}
-                        onChange={(event) => this.props.handleSidebarChange(event)} />
-                    <Button
-                        bynType="Success"
-                        clicked={(event) => this.props.onConfirm(event)}>
-                        Confirm
-                </Button>
-                </form>
-            </div>
-
+            <div>
+            <button onClick={() => {props.onSetSidebarOpen(false)}} className={classes.CloseX} >X</button>
+            <EmployeeForm 
+             changeInput={props.formChangeInput}
+             Record={props.formRecord}
+             recordToEdit={props.recordToEdit}
+             pressedEditButton={props.pressedEditButton}
+               />  
+               </div>  
         );
         return (
             <div>
                 <Sidebar
                     sidebar={editForm}
-                    open={this.props.sidebarOpen}
-                    onSetOpen={this.props.onSetSidebarOpen}
+                    open={props.sidebarOpen}
+                    onSetOpen={props.onSetSidebarOpen}
                     pullRight={true}
                     styles={
                         {
@@ -56,11 +33,11 @@ class SidePanel extends Component {
                     }
 
                 >
-                    {this.props.content}
+                    {props.content}
                 </Sidebar>
             </div>
         );
     }
-}
+
 
 export default SidePanel;

@@ -1,11 +1,12 @@
 
 import './App.css';
-import EmployeeForm from './Containers/Layout/Layout';
+import Layout from './Containers/Layout/Layout';
+
 
 function App() {
   return (
     <div className="App">
-      <EmployeeForm/>
+      <Layout/>
     </div>
   );
 }
